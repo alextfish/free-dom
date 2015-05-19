@@ -86,4 +86,3 @@ Feature: Feodum
     Then I should have trashed Feodum from my hand
       And I should have gained Silver x3
       And I should need to Trash up to 1 card with Chapel
-  

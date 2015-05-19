@@ -1,0 +1,239 @@
+Ruins:
+ With no Looters, size of pile is 0
+ With Looters, size of pile is 10/20/30/40/50 with 2/3/4/5/6 players
+ Embargo on the pile affects all purchased Ruins even with different names
+ Contraband naming ruin at position #2 allows purchase of ruin #1 but not then #2
+ Wishing Well allows naming any ruin that was ever in the deck, even if the Ruins pile is empty or has none of that particular ruin left
+ When Ruins pile is empty, that counts towards game end
+Abandoned Mine:
+ Is found in the Ruins pile at game start
+ Adds $1 and enters Buy phase
+ Is an Action. Costs $0. [Crossroads, Remodel]
+Ruined Library:
+ Is found in the Ruins pile at game start
+ Draws 1 card and enters Buy phase
+ Is an Action. Costs $0. [Crossroads, Remodel]
+Ruined Market:
+ Is found in the Ruins pile at game start
+ Adds 1 Buy and enters Buy phase
+ Is an Action. Costs $0. [Crossroads, Remodel]
+Ruined Village:
+ Is found in the Ruins pile at game start
+ Adds 1 action
+ Is an Action. Costs $0. [Crossroads, Remodel]
+Survivors:
+ Is found in the Ruins pile at game start
+ Reveals top 2 cards - discard chosen
+ Reveals top 2 cards - replace in same order chosen
+ Reveals top 2 cards - replace in other order chosen
+ Reveals top 2 cards when they're the same - discard chosen
+ Reveals top 2 cards when they're the same - replace chosen
+ Reveals top card when deck+discard is only 1 card - discard chosen
+ Reveals top card when deck+discard is only 1 card - replace chosen
+ Is an Action. Costs $0. [Crossroads, Remodel]
+
+Shelters:
+ When Shelters chosen at game start, each player has 1x Necropolis, 1x Hovel, 1x Overgrown Estate, 7x Copper
+ Estate pile still has 8-12-12-15-18 Estates
+ Ambassador cannot return Shelters from hand (no supply pile).
+Necropolis:
+ Is found 1x in deck when Shelters chosen at game start
+ Is an Action
+ Adds 2 Actions (can play 2x Woodcutter)
+ Costs $1 (for Remodel etc)
+Hovel:
+ Is found 1x in deck when Shelters chosen at game start
+ When buy CARD, may trash Hovel from hand [Estate, Province, Great Hall, Harem]
+ Costs $1 (for Remodel etc)
+Overgrown Estate:
+ Is found 1x in deck when Shelters chosen at game start
+ Is a Victory card for purposes of Scout 
+ Grants +1 Card when trashed
+ Grants +1 Card when trashed in the middle of other actions [Rulebook: Zach plays Hermit. He looks through his discard pile and decides to trash an Overgrown Estate from it. He immediately draws a card, a Copper. Then he continues resolving Hermit, and gains another Hermit, putting it in his discard pile.]
+ Costs $1 (for Remodel etc)
+ 
+Spoils
+ Is not in the supply
+ Is a treasure
+ Playing - adds $3 and returns to the supply
+ Can't be gained by Mine
+ Can be gained by Thief
+ Can be affected by Royal Seal / Watchtower
+ Can't be duplicated by Talisman
+ Does exist in the trash when trashed
+ ...
+ 
+Poor House
+ With no treasures, adds $4
+ With one treasure, adds $3
+ With $1 already there and 5 treasures, subtracts $1
+ Two of them (drawing a treasure in between) add different amounts
+ 
+Beggar
+ Playing as an Action
+ Reacting to attack (AutoBeggar on)
+ Reacting to attack (AutoBeggar off)
+ Does not react from deck, discard, or set-aside
+ 
+Squire
+ Playing for Actions
+ Playing for Buys
+ Playing for Silver
+ Trashing to Remodel, no Attack in supply
+ Trashing 3x to Chapel, one Attack in supply
+ Trashing to opponent's Swindler, two Attacks in supply
+
+Vagrant
+ Draws [Curse|Ruined Market|Necropolis|Province|Island|Harem]
+ Does not draw [Copper|Moat|Marauder|Spoils]
+ 
+Forager
+ With all cards in hand identical (Copper), nothing in trash
+ With one card in hand (Gold), 5x Silver in trash
+ With no cards in hand, five distinct treasures in trash
+ With two cards in hand, nothing in trash [Copper - $1|Estate - $0]
+ 
+Hermit/Madman
+ Playing Hermit with lots of things in hand and discard
+ Playing Hermit with empty hand, full discard
+ Playing Hermit with full hand, empty discard
+ Playing Hermit with 1 card in hand, empty discard
+ Playing Hermit with empty hand, 1 card in discard 
+ Playing Hermit with no cards in hand or discard
+ [No way to get down to only one distinct <=$3, I think, since Copper and Silver are infinite]
+ Discarding Hermit when did buy
+ Discarding Hermit when didn't buy
+ End turn when Hermit already trashed (Procession)
+ End turn when Hermit already moved (Scheme)
+ Can't gain Madman if Madman pile empty
+ Playing Madman with [0|1|6] cards in hand and 3 cards in discard
+ Ambassador cannot return Madmen from hand (no supply pile)
+ Madman does exist in the trash when trashed
+ 
+Market Square
+ Playing
+ Reacting to trash by Remodel
+ Reacting to trash by Procession
+ Reacting to trash by Thief
+ Reacting to trash by Noble Brigand's on-buy trigger
+ Does not react from deck, discard, or set-aside
+
+Sage
+ Playing with top card <=3
+ Playing with third card <=3
+ Playing with deck all >3, discard contains <=3
+ Playing with deck and discard all >3
+ Playing with empty deck and discard
+ 
+Storeroom
+ Playing with empty hand
+ Playing and discarding 3/3 then 0/3
+ Playing and discarding 3/5 then 1/5
+ Playing and discarding 1/2 then 2/2
+ Playing and discarding 0/4 then 4/4
+ 
+Urchin/Mercenary
+ Playing Urchin with some opponents 5-6 cards in hand
+ Playing Urchin with all opponents 3-4 cards in hand
+ Playing another attack and not trashing Urchin
+ Playing another attack and trashing Urchin
+ Playing Mercenary and not trashing
+ Playing Mercenary when 1 card in hand
+ Playing Mercenary and trashing, with some opponents 4-5 cards in hand
+ Playing Mercenary and trashing, with all opponents 2-3 cards in hand
+ Ambassador cannot return Mercenaries from hand (no supply pile)
+ Mercenary does exist in the trash when trashed
+ 
+Armory
+ Can gain [Copper|Estate|Moat|Smithy|Urchin]
+ Can't gain [Duchy|Gold|Spoils|Mercenary]
+ Further tests from BaseGame::Workshop
+
+Death Cart
+ Playing with no actions in hand
+ Playing with two actions in hand: choose to trash another action
+ Playing with two actions in hand: choose to trash Death Cart
+ Playing twice with Throne Room
+ Gains Ruins when bought
+ 
+Feodum
+ Number in supply
+ Score with [0, 2, 3, 4, 8, 9, 10] Silvers in deck (plus Copper, Gold, Royal Seal)
+ Trashing to Remodel
+ Trashing to opponent's Saboteur
+ Trashing 3x to Chapel
+ 
+Fortress
+ Playing
+ Trashing to Remodel
+ Trashing to opponent's Saboteur
+ Trashing 3x to Chapel
+ Playing with Procession [with Mine in supply]
+ 
+Ironmonger
+ Playing when top card is [Copper|Moat|Province|Curse|Necropolis|Hovel|Overgrown Estate|Great Hall|Harem] - choosing to leave card there
+ Playing when top card is [Copper|Moat|Province|Curse|Necropolis|Hovel|Overgrown Estate|Great Hall|Harem] - choosing to discard the card
+ 
+Marauder
+ Playing
+ Playing when one opponent Moats, another is Lighthoused, another Watchtowers
+ 
+Procession
+ Playing with no action in hand
+ Playing and decline to choose an action
+ Playing Smithy: draw 6, trash Smithy, gain a 5-cost Action
+ Playing Workers' Village, choose to trash first time: draw 2, +4 Actions, +$2, gain a 5-cost Action
+ Playing Feast: gain 2x 5-or-less (Duchy, Royal Seal) and a 5-cost Action (Mine being the only such)
+ Playing Cultist: 2x Cultist effect, then trash Cultist and +3 Cards, then gain a 6-cost Action
+ Playing Fortress: +2 cards, +4 Actions, move Fortress to hand, gain a 5-cost Action
+ Procession into Procession into Moat and Woodcutter: +4 Cards, gain a 3-cost, +$4, gain a 4-cost, gain a 5-cost
+ Procession a Lighthouse: gain $2 now, gain a 3-cost Action. Procession stays enduring. Not protected from attacks. Next turn gain $2 and Procession moves to in play.
+ Procession a Madman: +2 Actions, +3 Cards, return Madman to its pile; then +2 Actions; then Procession fails to trash Madman (no Madman appears in the trash); then gain a 1-cost Action
+ 
+Rats
+ Pile size is 20
+ Playing with Coppers + Estates in hand
+ Playing with Coppers + Rats in hand
+ Playing with only Rats in hand
+ Playing with empty hand + empty deck
+ Trashing to Remodel
+ Trashing to opponent's Saboteur
+ Trashing 3x to Chapel
+ 
+Scavenger
+ Playing - discard deck and choose [Gold, Moat, Nobles]
+ Playing - don't discard deck, just choose [Gold, Moat, Nobles] from discard
+ Playing with empty discard, choose not to discard deck
+ Playing with empty discard, choose to discard deck
+ Playing with empty discard and deck
+
+Wandering Minstrel
+ Playing with no Actions in top 3
+ Playing with 1 Action in top 3
+ Playing with 2 Actions in top 3
+ Playing with 3 Actions in top 3
+ Playing with one card in deck (after draw) and one in discard
+ Playing with no cards in deck (after draw)
+ 
+ 
+
+== INTERACTIONS: ==
+Non-Supply Actions
+ - Can not be gained by Haggler, Remodel
+ - Can be affected by Watchtower
+ - Ambassador 
+
+Non-Supply Treasure (Spoils)
+ -> Mint does not trash it
+ 
+Piles of varying content
+ - Talisman: Can only affect Ruins if the top Ruin matches the one just gained
+ - Ambassador: Can return a Knight. Next player gains it. Other players don't.
+ 
+Graverobber - Cultist:
+ - From rulebook: "For example, if a player plays Graverobber and uses it to trash a Cultist, he first draws
+three cards for trashing Cultist, then continues with resolving Graverobber and gains a card costing
+up to 8".
+
+Losing Track:
+ - From rulebook: Losing track of a card prevents it from being moved, but does not stop anything else from happening. For example, if you Procession a Madman, Procession first puts Madman in play; then you resolve Madman, getting +2 Actions and drawing cards and returning Madman to the Madman pile; then Procession fails to put Madman into play again, because Procession expects to find Madman in play, but it is not there, it's in the Madman pile; then you resolve Madman again, only getting +2 Actions this time, since it says "if you do" before the card-drawing, and you did not actually return it to the Madman pile this time; then Procession fails to trashMadman since Procession again expects to find Madman in play and it is not there; and then you gain an Action costing $1 if you can.
