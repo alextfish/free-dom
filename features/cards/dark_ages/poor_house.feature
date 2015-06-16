@@ -22,8 +22,8 @@ Feature: Poor House
     Then I should have 3 cash
       And it should be my Play Treasure phase
       
-  Scenario: Playing Poor House with $1 and five Treasures in hand 
-    Given my hand contains Market, Poor House, Copper x5
+  Scenario: Playing Poor House with $1 and six Treasures in hand (bottoms out at zero)
+    Given my hand contains Market, Poor House, Copper x6
       And my deck contains Estate x10
       And it is my Play Action phase
     When I play Market
@@ -32,6 +32,8 @@ Feature: Poor House
     When I play Poor House
       Then I should have 0 cash
       And it should be my Play Treasure phase
+    When I play simple treasures
+      Then I should have 6 cash
       
   Scenario: Playing 2x Poor House (drawing a treasure in between) add different amounts
     Given my hand contains Poor House x2, Village x2, Copper

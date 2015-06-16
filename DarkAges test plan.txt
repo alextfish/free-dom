@@ -8,19 +8,19 @@ Ruins:
 Abandoned Mine:
  Is found in the Ruins pile at game start
  Adds $1 and enters Buy phase
- Is an Action. Costs $0. [Crossroads, Remodel]
+ Is an Action. Costs $0. [Village->This->Conspirator->Remodel another This]
 Ruined Library:
  Is found in the Ruins pile at game start
  Draws 1 card and enters Buy phase
- Is an Action. Costs $0. [Crossroads, Remodel]
+ Is an Action. Costs $0. [Village->This->Conspirator->Remodel another This]
 Ruined Market:
  Is found in the Ruins pile at game start
  Adds 1 Buy and enters Buy phase
- Is an Action. Costs $0. [Crossroads, Remodel]
+ Is an Action. Costs $0. [Village->This->Conspirator->Remodel another This]
 Ruined Village:
  Is found in the Ruins pile at game start
  Adds 1 action
- Is an Action. Costs $0. [Crossroads, Remodel]
+ Is an Action. Costs $0. [Village->This->Conspirator->Remodel another This]
 Survivors:
  Is found in the Ruins pile at game start
  Reveals top 2 cards - discard chosen
@@ -30,7 +30,7 @@ Survivors:
  Reveals top 2 cards when they're the same - replace chosen
  Reveals top card when deck+discard is only 1 card - discard chosen
  Reveals top card when deck+discard is only 1 card - replace chosen
- Is an Action. Costs $0. [Crossroads, Remodel]
+ Is an Action. Costs $0. [Village->This->Conspirator->Remodel another This]
 
 Shelters:
  When Shelters chosen at game start, each player has 1x Necropolis, 1x Hovel, 1x Overgrown Estate, 7x Copper
@@ -80,6 +80,7 @@ Squire
  Playing for Buys
  Playing for Silver
  Trashing to Remodel, no Attack in supply
+ Trashing to Remodel, two Attacks in supply: choose Attack to gain before gaining Remodel card
  Trashing 3x to Chapel, one Attack in supply
  Trashing to opponent's Swindler, two Attacks in supply
 
@@ -159,14 +160,14 @@ Death Cart
 Feodum
  Number in supply
  Score with [0, 2, 3, 4, 8, 9, 10] Silvers in deck (plus Copper, Gold, Royal Seal)
- Trashing to Remodel
- Trashing to opponent's Saboteur
+ Trashing to Remodel: gain Silvers before gaining Remodel card
+ Trashing to opponent's Rogue
  Trashing 3x to Chapel
  
 Fortress
  Playing
- Trashing to Remodel
- Trashing to opponent's Saboteur
+ Trashing to Remodel: goes back in hand before gaining Remodel card
+ Trashing to opponent's Rogue
  Trashing 3x to Chapel
  Playing with Procession [with Mine in supply]
  
@@ -196,8 +197,8 @@ Rats
  Playing with Coppers + Rats in hand
  Playing with only Rats in hand
  Playing with empty hand + empty deck
- Trashing to Remodel
- Trashing to opponent's Saboteur
+ Trashing to Remodel: draw card before gaining Remodel card
+ Trashing to opponent's Rogue
  Trashing 3x to Chapel
  
 Scavenger
@@ -215,7 +216,142 @@ Wandering Minstrel
  Playing with one card in deck (after draw) and one in discard
  Playing with no cards in deck (after draw)
  
+Band of Misfits
+ Can't choose Mine, Adventurer, Forge
+ Playing as Moat
+ Playing as Village
+ Playing as Lighthouse: endures, protects, gives $1 next turn
+ Playing as Feast: gets trashed (triggers Market Square), becomes BoM in the trash
+ Playing as Fortress: returns to hand
+ Playing as Militia: counts as an Attack
+ Playing as Throne Room on Lighthouse: endures
+ Playing as Hermit, no buy: gets trashed (triggers Market Square), gain Madman
+ Can't choose Mine even after Highway
+ Can't choose an empty pile
+ Can't choose a non-Supply pile (Madman)
+ Can't choose a 5-cost Knight
+ Can choose Sir Martin if he's the visible Knight
+ Can't choose anything after 5x Highway 
+ Can't choose anything if all Actions cost >4
+ Playing via Procession: choose Village first play, keeps that identity for second play, gain a 6-cost, becomes BoM in the trash
  
+Catacombs
+ Playing - put into hand
+ Playing - discard them and draw 3 cards
+ Playing with 2 cards in deck and 5 in discard - put them into hand
+ Playing with 1 card in deck and 1 in discard - put them into hand
+ Playing with 1 card in deck and 1 in discard - discard them
+ Playing with 5 cards in deck and 0 in discard - discard them
+ Playing with 0 cards in deck and 0 in discard
+ Trashing 3x to Chapel: can choose Tunnel, Silver, Fortress; can't choose Duchy, Gold
+ Trashing to Remodel: gain Catacombs card before gaining Remodel card
+ Trashing to opponent's Rogue
+ 
+Count
+ Playing - discard 2, then [+$3 | trash hand | gain Duchy]
+ Playing - topdeck a card, then [+$3 | trash hand | gain Duchy]
+ Playing - gain Copper, then [+$3 | trash hand | gain Duchy]
+ Playing with 1 other card in hand
+ Playing with 0 other cards in hand
+ 
+Counterfeit
+ Playing with no other treasures in hand
+ Playing and declining to use
+ Playing simple treasures [Copper | Silver | Gold | Platinum]
+ Playing Contraband - Bob gets asked for two cards
+ Playing [Loan | Venture] - get trigger twice
+ Playing Ill-Gotten Gains - get trigger twice
+ Playing [Quarry | Talisman | Royal Seal | Hoard] - gives cash but doesn't give static ability
+ Playing [Bank | Fool's Gold] - value is [$2+$2 | $1+$4]
+ Playing Spoils - works
+ Playing Counterfeit with Counterfeit, into Gold plus Bank
+ 
+Cultist
+ Playing Cultist (no other Cultists around)
+ Playing Cultist when opponents are protected
+ Playing Cultist with another Cultist in hand
+ Playing Cultist with top two cards of deck both Cultists
+ Trashing to Remodel: draw 3 cards before gaining Remodel card
+ Trashing to opponent's Rogue
+ Trashing 3x to Chapel
+ 
+Graverobber
+ Playing with no Actions in hand and nothing relevant in trash
+ Playing and trashing Action costing [$2, $3, $6] from hand 
+ Playing with only Silver and Copper in trash (autogain the Silver)
+ Playing with a fully-stocked trash
+ Playing with Throne Room: can trash Village then gain it back from trash
+ 
+Junk Dealer
+ Playing with nothing else in hand or deck
+ Playing with only one type of card in hand
+ Playing with a varied hand
+ 
+Mystic
+ [Copy from Intrigue::WishingWell]
+ 
+Pillage
+ Playing Pillage
+ Playing Pillage when opponents are protected
+ 
+Rebuild
+ Playing naming Province - goes past Province, finds Estate, can gain Duchy, Tunnel, Estate
+ Playing naming Colony - goes past Colony, finds Province, can gain Colony, Province, etc
+ Playing naming something irrelevant - hits Province, can gain Province
+ Playing with no Victory cards in deck
+ Playing with empty deck+discard
+ 
+Rogue
+ Playing with only Silver and Copper in trash (autogain the Silver)
+ Playing with a fully-stocked trash
+ Playing with King's Court: can trash opponent's Mine+Silver then gain both back from trash
+ 
+Altar
+ Playing with nothing else in hand
+ Playing with only one type of card in hand
+ Playing with a varied hand
+ 
+Hunting Grounds
+ Playing with big deck
+ Playing with 1 card in deck and 1 in discard
+ Playing with empty deck+discard
+ Trashing to Remodel: choose what to gain from HG before gaining card from Remodel
+ Trashing to opponent's Rogue
+ Trashing 3x to Chapel
+ 
+Knights
+ Size of pile is 10
+ Top Knight is visible, others aren't [may not be testable]
+ Embargo on the pile affects all purchased Knights even with different names
+ Contraband naming Knight at position #2 allows purchase of Knight #1 but not then #2
+ Wishing Well allows naming any Knight that was ever in the deck, even if the Knights pile is empty or does not have that particular Knight left
+ When Knights pile is empty, that counts towards game end
+ 
+ For each Knight with no other choices:
+   Knight         | Actions afterwards |  Extra verification 
+   Dame Josephine |        0           | I should have 0 cash available
+   Dame Molly     |        2           | I should have 2 actions available
+   Dame Sylvia    |        0           | I should have 2 cash available
+   Sir Bailey     |        1           | I should have drawn a card
+   Sir Destry     |        0           | I should have drawn 2 cards
+   Sir Martin     |        0           | I should have 3 buys available
+   Sir Michael    |        0           | Dave chooses to discard his Estate in hand
+   Sir Vander     |        0           | I should have 0 cash available
+ Playing [Knight] when Bob has a Lighthouse out, Cathy has 2xSilver on top, Dave has Estate+Province on top, Edgar has Silver+Gold on top, Fiona has Mine+Copper on top (and all undefended players have hand size 2-3 except Dave)
+ Playing [Knight] when Bob has Knight+Gold on top, Cathy has a Moat and AutoMoat, Dave has Knight+Village on top (and all undefended players have hand size 2-3 except Dave), when Bob and Dave [both trash the Knight|one trashes their Knight|neither trash their Knight]
+ 
+Dame Anna
+ Playing with [0, 1, 2, 3] cards in hand
+Dame Josephine
+ Is worth 2VP
+Dame Molly
+ Adds 2 actions
+Dame Natalie
+ Offers Estate, Silver, Village, Pawn, but not $4+
+ After Highway, offers Sir Martin but not Sir Destry
+Sir Vander
+ Trashing to Chapel
+ Trashing to Bob's Knight attack
 
 == INTERACTIONS: ==
 Non-Supply Actions
@@ -230,10 +366,17 @@ Piles of varying content
  - Talisman: Can only affect Ruins if the top Ruin matches the one just gained
  - Ambassador: Can return a Knight. Next player gains it. Other players don't.
  
+Multiple trash triggers:
+ - Using Count to simultaneously trash Fortress, Squire, Feodum, Catacombs, Sir Vander and 2xRats
+ - Using Chapel to simultaneously trash Hunting Grounds, 2xCultist, Overgrown Estate with Market Square in hand
+ 
 Graverobber - Cultist:
  - From rulebook: "For example, if a player plays Graverobber and uses it to trash a Cultist, he first draws
 three cards for trashing Cultist, then continues with resolving Graverobber and gains a card costing
 up to 8".
+
+Hermit-Prince: 
+ - From DominionStrategy: A Hermit that is set aside again by Prince on a turn where no cards were bought will get set aside with Prince, fail to trash itself, you gain a Madman, and the Hermit still gets to be played again by Prince next turn.
 
 Losing Track:
  - From rulebook: Losing track of a card prevents it from being moved, but does not stop anything else from happening. For example, if you Procession a Madman, Procession first puts Madman in play; then you resolve Madman, getting +2 Actions and drawing cards and returning Madman to the Madman pile; then Procession fails to put Madman into play again, because Procession expects to find Madman in play, but it is not there, it's in the Madman pile; then you resolve Madman again, only getting +2 Actions this time, since it says "if you do" before the card-drawing, and you did not actually return it to the Madman pile this time; then Procession fails to trashMadman since Procession again expects to find Madman in play and it is not there; and then you gain an Action costing $1 if you can.
