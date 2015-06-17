@@ -55,7 +55,9 @@ Overgrown Estate:
 Spoils
  Is not in the supply
  Is a treasure
- Playing - adds $3 and returns to the supply
+ Playing - adds $3 and returns to the pile
+ Suppresses autoplay when in hand
+ If decline to play, does not return to the pile
  Can't be gained by Mine
  Can be gained by Thief
  Can be affected by Royal Seal / Watchtower
@@ -98,16 +100,17 @@ Hermit/Madman
  Playing Hermit with lots of things in hand and discard
  Playing Hermit with empty hand, full discard
  Playing Hermit with full hand, empty discard
- Playing Hermit with 1 card in hand, empty discard
+ Playing Hermit with 1 non-Treasure card in hand, empty discard
  Playing Hermit with empty hand, 1 card in discard 
  Playing Hermit with no cards in hand or discard
  [No way to get down to only one distinct <=$3, I think, since Copper and Silver are infinite]
  Discarding Hermit when did buy
- Discarding Hermit when didn't buy
+ Discarding Hermit when didn't buy (but did gain from Upgrade and Mine)
  End turn when Hermit already trashed (Procession)
  End turn when Hermit already moved (Scheme)
  Can't gain Madman if Madman pile empty
  Playing Madman with [0|1|6] cards in hand and 3 cards in discard
+ Playing Madman with Throne Room (and 3 other cards): get 4 actions but only draw 3 cards
  Ambassador cannot return Madmen from hand (no supply pile)
  Madman does exist in the trash when trashed
  
@@ -115,7 +118,7 @@ Market Square
  Playing
  Reacting to trash by Remodel
  Reacting to trash by Procession
- Reacting to trash by Thief
+ Reacting 3x to trash by Thief when 3 in hand
  Reacting to trash by Noble Brigand's on-buy trigger
  Does not react from deck, discard, or set-aside
 
@@ -132,15 +135,18 @@ Storeroom
  Playing and discarding 3/5 then 1/5
  Playing and discarding 1/2 then 2/2
  Playing and discarding 0/4 then 4/4
+ [The above cases will have just 1 card in deck and empty discard each - some of the discarded cards will get redrawn in the first 2 cases]
  
 Urchin/Mercenary
  Playing Urchin with some opponents 5-6 cards in hand
  Playing Urchin with all opponents 3-4 cards in hand
  Playing another attack and not trashing Urchin
  Playing another attack and trashing Urchin
+ Playing Urchin with Throne Room (does not trigger)
  Playing Mercenary and not trashing
  Playing Mercenary when 1 card in hand
  Playing Mercenary and trashing, with some opponents 4-5 cards in hand
+ Playing Mercenary and trashing Hunting Grounds and Catacombs: resolve triggers before attack
  Playing Mercenary and trashing, with all opponents 2-3 cards in hand
  Ambassador cannot return Mercenaries from hand (no supply pile)
  Mercenary does exist in the trash when trashed
@@ -156,6 +162,8 @@ Death Cart
  Playing with two actions in hand: choose to trash Death Cart
  Playing twice with Throne Room
  Gains Ruins when bought
+ Does not gain Ruins when buy is replaced by Trader
+ Givens Ruins to everyone when Ambassadored
  
 Feodum
  Number in supply
@@ -178,6 +186,7 @@ Ironmonger
 Marauder
  Playing
  Playing when one opponent Moats, another is Lighthoused, another Watchtowers
+ Playing when only 1 Ruin left in Ruins pile
  
 Procession
  Playing with no action in hand
@@ -207,6 +216,7 @@ Scavenger
  Playing with empty discard, choose not to discard deck
  Playing with empty discard, choose to discard deck
  Playing with empty discard and deck
+ Putting deck into discard pile doesn't trigger Tunnel
 
 Wandering Minstrel
  Playing with no Actions in top 3
@@ -263,7 +273,7 @@ Counterfeit
  Playing Ill-Gotten Gains - get trigger twice
  Playing [Quarry | Talisman | Royal Seal | Hoard] - gives cash but doesn't give static ability
  Playing [Bank | Fool's Gold] - value is [$2+$2 | $1+$4]
- Playing Spoils - works
+ Playing Spoils - works, doesn't go to trash
  Playing Counterfeit with Counterfeit, into Gold plus Bank
  
 Cultist
@@ -272,7 +282,7 @@ Cultist
  Playing Cultist with another Cultist in hand
  Playing Cultist with top two cards of deck both Cultists
  Trashing to Remodel: draw 3 cards before gaining Remodel card
- Trashing to opponent's Rogue
+ Trashing to opponent's Rogue: the 3 cards drawn don't include the other one revealed
  Trashing 3x to Chapel
  
 Graverobber
@@ -293,6 +303,8 @@ Mystic
 Pillage
  Playing Pillage
  Playing Pillage when opponents are protected
+ Playing Pillage with no Spoils left in Spoils pile
+ Playing Pillage with just 1 Spoils left in Spoils pile
  
 Rebuild
  Playing naming Province - goes past Province, finds Estate, can gain Duchy, Tunnel, Estate
@@ -316,7 +328,7 @@ Hunting Grounds
  Playing with 1 card in deck and 1 in discard
  Playing with empty deck+discard
  Trashing to Remodel: choose what to gain from HG before gaining card from Remodel
- Trashing to opponent's Rogue
+ Trashing to opponent's Rogue when only 2 Estates left in pile
  Trashing 3x to Chapel
  
 Knights
@@ -325,7 +337,9 @@ Knights
  Embargo on the pile affects all purchased Knights even with different names
  Contraband naming Knight at position #2 allows purchase of Knight #1 but not then #2
  Wishing Well allows naming any Knight that was ever in the deck, even if the Knights pile is empty or does not have that particular Knight left
+ Wishing Well naming Sir Bailey does not match Sir Michael
  When Knights pile is empty, that counts towards game end
+ Knights pile does not get a Trade Route counter even with Dame Josephine on top
  
  For each Knight with no other choices:
    Knight         | Actions afterwards |  Extra verification 
