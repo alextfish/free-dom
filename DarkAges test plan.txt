@@ -244,6 +244,7 @@ Band of Misfits
  Can't choose anything after 5x Highway 
  Can't choose anything if all Actions cost >4
  Playing via Procession: choose Village first play, keeps that identity for second play, gain a 6-cost, becomes BoM in the trash
+ [Adventures::Ferry will allow choosing more expensive Actions, including Band of Misfits itself]
  
 Catacombs
  Playing - put into hand
